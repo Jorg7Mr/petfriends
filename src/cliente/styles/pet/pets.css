@@ -1,0 +1,226 @@
+.contentOptionPet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.btnAddPet {
+  height: 30px;
+  background-color: #3f8686;
+  font-weight: bold;
+  border-radius: 5px;
+  border-color: #3f8686;
+  box-shadow: none;
+  color: white;
+  font-size: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-width: 0;
+  outline: none;
+  transition: transform 0.3 ease-in-out;
+}
+
+.btnAddPet:hover {
+  background-color: #316969;
+  transform: scale(1.01);
+}
+
+.titlePet {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.contentPets {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  background-color: #93c9c938;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.contentPetsFilters {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 0.5rem;
+  background-color: #69a8a8;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.contentPetsFilters div {
+  margin: 0 0.4rem;
+}
+
+/*Search*/
+
+.inputSearchs {
+  outline: none;
+  padding: 5px;
+  border-color: rgba(184, 182, 182, 0.116);
+  border-radius: 5px;
+  border: none;
+}
+
+.inputSearchs::placeholder {
+  padding-left: 0.3rem;
+  font-size: 11px;
+}
+
+.searchContents {
+  position: relative;
+}
+
+.searchIcons {
+  position: absolute;
+  left: 85%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #747373;
+  transition: transform 0.3s ease;
+}
+
+.searchIcons:hover {
+  transform: scale(1.1) translateY(-50%);
+  color: black;
+}
+
+.contentOptionsPets {
+  padding: 10px;
+}
+
+/*Select*/
+.selectTypePets {
+  outline: none;
+  border: none;
+  padding: 6px;
+  font-size: 11px;
+  border-radius: 5px;
+  border: none;
+  scroll-behavior: smooth;
+}
+
+/*Modal Pet*/
+.formPet {
+  display: flex;
+  justify-content: space-around;
+}
+
+.picturePet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentImgPet {
+  width: 200px;
+  height: 250px;
+}
+
+.imgPet {
+  max-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contentPetForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.selectTypePetForm {
+  width: 85%;
+  outline: none;
+  padding: 6px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  border-radius: 5px;
+  scroll-behavior: smooth;
+}
+
+.txtNombreForm {
+  outline: none;
+  padding: 6px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  border-radius: 5px;
+  scroll-behavior: smooth;
+}
+
+.textDescriptionForm {
+  outline: none;
+  padding: 6px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  border-radius: 5px;
+  scroll-behavior: smooth;
+}
+
+.txtNombreForm,
+.textDescriptionForm {
+  width: 88%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.txtNombreForm:focus,
+.textDescriptionForm:focus {
+  outline: none;
+  border-color: #3f8686;
+}
+
+.txtType,
+.txtName,
+.txtDescription {
+  margin-block-end: 0;
+}
+
+.custom-select {
+  width: 100%;
+}
+
+.custom-select select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.custom-select select:focus {
+  outline: none;
+  border-color: #3f8686;
+}
+
+.petGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 50px 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.contentNameAndType {
+  text-align: center;
+}
+
+@media screen and (max-width: 664px) {
+  .formPet {
+    display: block;
+    overflow-y: auto;
+    max-height: 400px;
+  }
+  .custom-select {
+    width: 95%;
+  }
+}

@@ -1,0 +1,60 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #93c9c9;
+}
+
+.navOptionsContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navOptionsContent div {
+  margin: 0 0.7rem;
+}
+
+.custom-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: 10px;
+  color: #275353;
+}
+
+.iconContainer {
+  position: relative;
+  transition: transform 0.3 ease-in-out;
+}
+
+.optionText {
+  font-size: 10px;
+  color: black;
+  position: absolute;
+  bottom: 100%;
+  top: 75%;
+  left: 50%;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.iconContainer:hover .optionText {
+  opacity: 1;
+}
+
+.iconContainer:hover {
+  transform: scale(1.2);
+}
+
+.contentImageLogo {
+  width: 130px;
+  height: auto;
+}
+
+.imgLogo {
+  width: 100%;
+  height: 100%;
+}

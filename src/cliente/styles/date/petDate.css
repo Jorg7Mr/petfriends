@@ -1,0 +1,69 @@
+.txtDate {
+  margin-block-end: 0;
+  font-size: 15px;
+}
+
+.txtDatePerson {
+  margin-block-start: 0;
+}
+
+.txtDatePetForm,
+.txtDatePersonForm {
+  width: 94%;
+}
+
+.txtDatePetForm {
+  background-color: #3f868638;
+}
+
+.txtDateForm {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.txtDateForm:hover {
+  outline: none;
+  border-color: #3f8686;
+}
+
+.txtDateForm:focus {
+  outline: none;
+  border-color: #3f8686;
+}
+
+.contentDateHour {
+  display: flex;
+  justify-content: space-around;
+}
+
+.contentDateHour div {
+  padding: 0 15px;
+}
+
+.contentDatesAndHours {
+  display: flex;
+  justify-content: space-between;
+}
+
+.txtDateDatesForm {
+  width: 90%;
+}
+
+.contentDateDates {
+  flex: 0.8;
+}
+
+.txtHourStartForm,
+.txtHourEndForm {
+  padding: 8px;
+}
+
+@media screen and (max-width: 664px) {
+  .contentDatesAndHours {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+}

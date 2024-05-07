@@ -1,0 +1,15 @@
+.contentNotFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contentImageNotFound {
+  width: 250px;
+  height: auto;
+}
+
+.imgPetNotFound {
+  width: 100%;
+  height: 100%;
+}

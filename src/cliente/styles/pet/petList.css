@@ -1,0 +1,87 @@
+.contentPetList {
+  width: 200px;
+  height: 250px;
+}
+
+.contentImagePet {
+  width: 100%;
+  height: 100%;
+}
+
+.imgPet {
+  width: 100%;
+  height: 100%;
+}
+
+.contentDataPet {
+  width: 200px;
+  height: 250px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.dataPet {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.btnAddCita {
+  height: 30px;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 5px;
+  border-color: #3f8686;
+  box-shadow: none;
+  background-color: transparent;
+  color: #3f8686;
+  font-size: 13px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-width: 0;
+  outline: none;
+  transition: transform 0.3 ease-in-out;
+}
+
+.btnAddCita:hover {
+  border: 1px solid;
+  border-color: #3f8686;
+  transform: scale(1.01);
+}
+
+.textDescription {
+  color: black;
+  margin-block-start: 0;
+  text-align: center;
+  font-size: 10px;
+  margin-block-start: 0;
+}
+
+.textType {
+  margin-block-start: 0;
+}
+
+.textName {
+  font-weight: bold;
+  font-size: 20px;
+  margin-block-end: 0;
+}
+.contentPetList {
+  position: relative;
+}
+
+.contentDataPet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.contentPetList:hover .contentDataPet {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.9);
+}
