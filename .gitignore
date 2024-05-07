@@ -1,0 +1,16 @@
+# Ignorar directorio node_modules
+/node_modules
+
+# Ignorar archivos de compilación
+/build
+/dist
+
+# Ignorar archivos de caché y logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignorar archivos de dependencias y scripts generados
+package-lock.json
+yarn.lock
