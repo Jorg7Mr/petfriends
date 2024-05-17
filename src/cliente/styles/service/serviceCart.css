@@ -1,0 +1,142 @@
+.contentServiceCart {
+  border: 1px solid rgba(197, 197, 197, 0.39);
+  border-radius: 5px;
+  padding: 10px;
+  width: 150px;
+}
+
+.titleCart {
+  margin-block-start: 0;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.txtTotal {
+  margin-block-end: 0;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.contentBtnRemove {
+  text-align: left;
+}
+
+.iconTrash {
+  height: auto;
+  width: 0.7rem;
+  color: #275353;
+  transition: transform 0.3 ease-in-out;
+}
+
+.iconTrash:hover {
+  transform: scale(1.07);
+}
+
+.btnTrash {
+  background-color: transparent;
+  border: none;
+}
+
+.txtDataItem {
+  font-size: 11px;
+}
+
+.titleDataItem {
+  font-size: 12px;
+  text-align: left;
+}
+
+.tooltipStyle {
+  background-color: #275353;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.hrStyle {
+  border: none;
+  height: 1px;
+  background-color: #dddddd;
+  margin: 10px 0;
+}
+
+.contentCartService {
+  display: flex;
+  flex-direction: column;
+}
+
+.contentServiceItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contentItem {
+  display: flex;
+  justify-content: space-between;
+  flex: 0.9;
+}
+
+.containerTotal {
+  display: flex;
+  justify-content: space-between;
+}
+
+.txtTotalPrice {
+  font-size: 12px;
+}
+
+.containerBtnPetTurno {
+  text-align: center;
+}
+
+.btnPetTurno {
+  height: 30px;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 5px;
+  border-color: #3f8686;
+  box-shadow: none;
+  background-color: transparent;
+  color: #3f8686;
+  font-size: 11px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-width: 0;
+  outline: none;
+  transition: transform 0.3 ease-in-out;
+}
+
+.btnPetTurno:hover {
+  border: 1px solid;
+  border-color: #3f8686;
+  transform: scale(1.01);
+}
+
+.txtDateTelephoneForm {
+  width: 94%;
+}
+
+.txtDatePetForm {
+  background-color: #ffffff;
+}
+
+.modalContent {
+  max-height: 300px; /* ajusta esta altura según tus necesidades */
+  overflow-y: auto; /* Agrega una barra de desplazamiento vertical si el contenido es más largo que la altura máxima */
+}
+
+.txtDateServiceNamePrice {
+  font-size: 14px;
+  background-color: #27535333;
+  padding-left: 10px;
+  padding-top: 1px;
+  width: 96%;
+}
+
+.txtDatePriceTotalForm {
+  background-color: #27535333;
+  width: 94%;
+}

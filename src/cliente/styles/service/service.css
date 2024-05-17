@@ -1,0 +1,95 @@
+.contentService {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.btnAddService {
+  height: 30px;
+  background-color: #3f8686;
+  font-weight: bold;
+  border-radius: 5px;
+  border-color: #3f8686;
+  box-shadow: none;
+  color: white;
+  font-size: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-width: 0;
+  outline: none;
+  transition: transform 0.3 ease-in-out;
+}
+
+.titleServices {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/*Modal*/
+
+.formServiceForm {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pictureService {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgServiceForm {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.contentImgService {
+  width: 250px;
+  height: 250px;
+}
+
+.contentServiceForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.txtNameService,
+.txtPriceService {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.txtNameServiceForm,
+.txtPriceServiceForm {
+  outline: none;
+  padding: 6px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  border-radius: 5px;
+  scroll-behavior: smooth;
+}
+
+.contentOptionsService {
+  flex: 0.9;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 50px 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.contentServiceFlex{
+  display: flex;
+  justify-content: space-around;
+}

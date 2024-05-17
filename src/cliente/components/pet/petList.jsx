@@ -14,10 +14,10 @@ const PetList = ({ data, handleShowModalDate }) => {
         <div className="contentDataPet">
           <div className="dataPet">
             <div className="contentNameAndType">
-              <p className="textName">{data.name}</p>
-              <p className="textType">{data.type}</p>
+              <p className="textName">{data?.name}</p>
+              <p className="textType">{data?.type}</p>
             </div>
-            <p className="textDescription">{data.description}</p>
+            <p className="textDescription">{data?.description}</p>
             <button
               className="btnAddCita"
               onClick={() => handleShowModalDate(data)}
@@ -27,7 +27,7 @@ const PetList = ({ data, handleShowModalDate }) => {
           </div>
         </div>
         <div className="contentImagePet">
-          <img src={data.image} alt="imgPet" className="imgPet" />
+          <img src={data?.image} alt="imgPet" className="imgPet" />
         </div>
       </div>
     </>
