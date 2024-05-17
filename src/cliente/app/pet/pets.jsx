@@ -10,6 +10,8 @@ import PetList from "../../components/pet/petList";
 import PetNotFound from "../../components/pet/petNotFound";
 import "../../styles/date/petDate.css";
 import useDate from "../../hooks/useDate";
+import IsDateTimeValid from "../../common/isValidDate";
+import IsHourValid from "../../common/isValidHours";
 
 const Pet = () => {
   const [showModal, setShowModal] = useState(false);
@@ -49,6 +51,7 @@ const Pet = () => {
     setDate("");
     setHourStart("");
     setHourEnd("");
+    setImagePet("");
   };
 
   const handleShowModal = () => {
@@ -72,8 +75,28 @@ const Pet = () => {
   };
 
   const savePet = () => {
-    if (!imagePet || !name || !description || !type) {
-      toast.error("Por favor, completa todos los campos.");
+    if (
+      !imagePet ||
+      !name ||
+      !description ||
+      !type ||
+      !date ||
+      !hourStart ||
+      !hourEnd
+    ) {
+      toast.error("Por favor, completa todos los campos");
+      return;
+    }
+
+    if (!IsDateTimeValid(date, hourStart)) {
+      toast.error("No se puede agendar citas en el pasado");
+      return;
+    }
+
+    if (!IsHourValid(hourStart, hourEnd)) {
+      toast.error(
+        "La hora de inicio no puede ser mayor a la hora de finalizacion"
+      );
       return;
     }
 
@@ -146,7 +169,7 @@ const Pet = () => {
       };
       reader.readAsDataURL(file);
     } else {
-      alert("Por favor, selecciona un archivo de imagen válido.");
+      toast.error("Por favor, selecciona un archivo de imagen válido.");
       setImagePet(null);
     }
   };

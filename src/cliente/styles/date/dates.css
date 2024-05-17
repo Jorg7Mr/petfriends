@@ -8,11 +8,16 @@
   border-bottom: 1px solid #ddd;
 }
 
-.styled-table th,
-.styled-table td {
+.styled-table th {
   color: #000000;
   padding: 8px;
   text-align: left;
+  background-color: white;
+}
+
+.styled-table td {
+  color: #000000;
+  padding: 8px;
   background-color: white;
 }
 
@@ -108,6 +113,40 @@
 .contentPetFilters > div {
   padding: 0 5px;
 }
+
+.styleBtnEye {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.styleBtnEye:hover {
+  transform: scale(1.2);
+}
+
+.contentBtnEye {
+  text-align: center;
+}
+
+.customIconEye {
+  height: 1.5rem;
+  width: 1.5rem;
+  color: #275353;
+}
+
+.serviceList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.txtServiceName {
+  font-size: 20px;
+}
+
+.txtServicePrice {
+  font-size: 18px;
+}
+
 @media screen and (max-width: 569px) {
   .contentPetFilters {
     display: flex;

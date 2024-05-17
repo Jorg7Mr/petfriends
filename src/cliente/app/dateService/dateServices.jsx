@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/date/dates.css";
-import useDate from "../../hooks/useDate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faEye } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Modal from "../../components/modal";
+import useDateService from "../../hooks/useDateService";
+import FormatNumber from "../../common/formatNumber";
+import { Tooltip } from "@material-tailwind/react";
 
-const Dates = () => {
+const DateServices = () => {
   const [dates, setDates] = useState([]);
-  const { getAllDatesWithPets, updateDate, deleteDate, error, isLoading } =
-    useDate();
+  const [services, setServices] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -18,9 +19,11 @@ const Dates = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [dateId, setDateId] = useState(null);
   const [newState, setNewState] = useState(null);
-
+  const [showModalEye, setShowModalEye] = useState(false);
+  const { getAllDateServicesWithService, updateDateService, error, isLoading } =
+    useDateService();
   useEffect(() => {
-    getAllDatesWithPets()
+    getAllDateServicesWithService()
       .then((data) => {
         setDates(data);
       })
@@ -31,11 +34,8 @@ const Dates = () => {
 
   const handleConfirmChange = async (dateId, newState) => {
     try {
-      const dateToUpdate = dates.find((date) => date.date._id === dateId);
-      dateToUpdate.date.state = newState;
-      await updateDate(dateId, dateToUpdate);
-      handleDeleteDates(dateId, newState);
-      const updatedDates = await getAllDatesWithPets();
+      await updateDateService(dateId, newState);
+      const updatedDates = await getAllDateServicesWithService();
       setDates(updatedDates);
       setShowModal(false);
     } catch (error) {
@@ -43,20 +43,6 @@ const Dates = () => {
       toast.error(
         "Ha ocurrido un error al momento de cambiar el estado de la cita"
       );
-    }
-  };
-
-  const handleDeleteDates = async (dateId, newState) => {
-    if (newState === "finalizado") {
-      deleteDate(dateId);
-      toast.success("La cita fue finalizada con éxito");
-      return;
-    } else if (newState === "cancelado") {
-      deleteDate(dateId);
-      toast.success("La cita ha sido cancelada");
-      return;
-    } else {
-      toast.success(`La cita ha cambiado de estado a: ${newState}`);
     }
   };
 
@@ -71,19 +57,32 @@ const Dates = () => {
     setShowModal(false);
   };
 
-  const filteredDates = dates.filter((date) => {
-    const formattedDate = new Date(date.date.date);
+  const filteredDates = dates?.filter((date) => {
+    const formattedDate = new Date(date?.dateService.date);
     const isDateInRange =
       startDate && endDate
         ? formattedDate >= new Date(startDate) &&
           formattedDate <= new Date(endDate)
         : true;
     return (
-      (date.date.person.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        date.pet.name.toLowerCase().includes(searchTerm.toLowerCase())) &&
+      (date.dateService.person
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase()) ||
+        date.dateService.pet
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase())) &&
       isDateInRange
     );
   });
+
+  const handleHideModalEye = () => {
+    setShowModalEye(false);
+  };
+
+  const showShowModalEye = (services) => {
+    setServices(services);
+    setShowModalEye(true);
+  };
   return (
     <>
       <div className="contentDate">
@@ -99,8 +98,27 @@ const Dates = () => {
             <strong>{selectedDate?.person}</strong>?
           </p>
         </Modal>
+        <Modal
+          open={showModalEye}
+          onHide={handleHideModalEye}
+          onSave={handleHideModalEye}
+          title="Lista de Servicios"
+        >
+          <div>
+            {services.map((service, index) => (
+              <div key={index} className="serviceList">
+                <p>
+                  <strong className="txtServiceName">{service.name} </strong>
+                </p>
+                <p className="txtServicePrice">
+                  $<FormatNumber number={service.price} />
+                </p>
+              </div>
+            ))}
+          </div>
+        </Modal>
         <div>
-          <p className="titleDate">Agenda de PetCitas</p>
+          <p className="titleDate">Agenda de Servicios</p>
         </div>
 
         <div className="contentDataDates">
@@ -143,10 +161,13 @@ const Dates = () => {
               <thead>
                 <tr>
                   <th>Persona</th>
+                  <th>Telefono</th>
                   <th>Mascota</th>
                   <th>Fecha</th>
                   <th>Inicio</th>
                   <th>Fin</th>
+                  <th>Servicios</th>
+                  <th>Total</th>
                   <th>Estado</th>
                 </tr>
               </thead>
@@ -154,19 +175,36 @@ const Dates = () => {
                 {filteredDates && filteredDates.length > 0 ? (
                   filteredDates.map((date, index) => (
                     <tr key={index}>
-                      <td>{date.date.person}</td>
-                      <td>{date.pet.name}</td>
-                      <td>{new Date(date.date.date).toLocaleDateString()}</td>
-                      <td>{date.date.hourStart}</td>
-                      <td>{date.date.hourEnd}</td>
+                      <td>{date.dateService.person}</td>
+                      <td>{date.dateService.telephone}</td>
+                      <td>{date.dateService.pet}</td>
+                      <td>
+                        {new Date(date.dateService.date).toLocaleDateString()}
+                      </td>
+                      <td>{date.dateService.hourStart}</td>
+                      <td>{date.dateService.hourEnd}</td>
+                      <td>
+                        <Tooltip
+                          content="Ver Servicio"
+                          className="tooltipStyle"
+                        >
+                          <button className="styleBtnEye customIconEye">
+                            <FontAwesomeIcon
+                              icon={faEye}
+                              onClick={() => showShowModalEye(date.services)}
+                            />
+                          </button>
+                        </Tooltip>
+                      </td>
+                      <td>{date.dateService.total}</td>
                       <td>
                         <select
-                          value={date.date.state}
+                          value={date.dateService.state}
                           onChange={(e) =>
                             handleShowModal(
-                              date.date._id,
+                              date.dateService._id,
                               e.target.value,
-                              date.date
+                              date.dateService
                             )
                           }
                         >
@@ -182,7 +220,8 @@ const Dates = () => {
                     <tr>
                       <td />
                       <td />
-                      <td colSpan="6">
+                      <td />
+                      <td colSpan="8">
                         <h3> No se han encontrado citas</h3>
                       </td>
                     </tr>
@@ -198,4 +237,4 @@ const Dates = () => {
   );
 };
 
-export default Dates;
+export default DateServices;

@@ -1,0 +1,70 @@
+.btnAddService:hover {
+  background-color: #316969;
+  transform: scale(1.01);
+}
+
+.titleService {
+  font-weight: bolder;
+  font-size: 18px;
+  margin-block-start: 0;
+}
+
+.txtPrice {
+  margin-block-end: 0;
+  font-size: 14px;
+}
+
+.custom-icon-cart {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: 10px;
+  color: #a8a7a7;
+  transition: transform 0.3 ease-in-out;
+}
+
+.custom-icon-cart:hover {
+  transform: scale(1.07);
+}
+
+.custom-icon-cart-add {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: 10px;
+  color: #275353;
+  transition: transform 0.3 ease-in-out;
+}
+
+.custom-icon-cart-add:hover {
+  transform: scale(1.07);
+}
+
+.cardService {
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.082);
+  border-radius: 10px;
+}
+
+.imgService {
+  width: 200px;
+  height: 150px;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: transform 0.3 ease-in-out;
+}
+
+.imgService:hover {
+  transform: scale(1.03);
+}
+
+.contentCardService {
+  text-align: center;
+}
+.contentBtnAddCart {
+  text-align: end;
+}
+
+.btnAddCart {
+  border: none;
+  background-color: transparent;
+}
